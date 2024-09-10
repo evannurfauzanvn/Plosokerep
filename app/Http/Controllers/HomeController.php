@@ -6,6 +6,7 @@ use App\Models\Aparatur;
 use App\Models\Berita;
 use App\Models\Pengaduan;
 use App\Models\PengajuanSurat;
+use App\Models\Product;
 use App\Models\ProfilDesa;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -41,7 +42,10 @@ class HomeController extends Controller
     }
 
     public function homepageadmin(){
-        return view('homepageadmin');
+        return view('homepageadmin', [
+            'latest_post' => Product::latest()->first(),
+            'product' => Product::latest()->get()
+        ]);
     }
 
     

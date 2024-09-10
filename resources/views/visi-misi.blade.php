@@ -147,12 +147,13 @@
                 </div>
             </div>
         </div>
+      </div>
     </div>
   </div>
   <br>
   <br>
   <!-- Optional JavaScript; choose one of the two! -->
-
+  @include('layout/copyright')
   <!-- Option 1: Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXlUr3aB+Kx4dZPeM6K/A6zt7v/tbB6Z9E+EQ6MofeFB1NXFUOfN8FHwp+" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhG81sKDtZKWpCwrP7f8KpP4YfIvATeFw5PauH526ymkitDv8f0XwRGE8K/9" crossorigin="anonymous"></script>

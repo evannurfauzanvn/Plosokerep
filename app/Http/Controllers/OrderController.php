@@ -59,9 +59,10 @@ class OrderController extends Controller
 
     public function viewCart()
     {
-        $orders = Order::with('product')->get(); // Load relasi product
+        $orders = Order::with('product')->where('status', 'Unpaid')->get(); // Load relasi product
         return view('cart', compact('orders'));
     }
+
 
     public function delete($id)
     {
@@ -73,5 +74,32 @@ class OrderController extends Controller
         return redirect()->route('cart.view')->with('error', 'Order not found.');
     }
 
+    public function callback(Request $request){
+        $serverKey = config('midtrans.server_key');
+        $hashed = hash("sha512", $request->order_id.$request->status_code.$request->gross_amount.$serverKey);
+        if($hashed == $request->signature_key){
+            if($request->transaction_status == 'capture'){
+                $order = Order::find($request->order_id);
+                $order->update(['status' => 'Paid']);
+            }
+        }
+    }
+
+    public function pesan(){
+        return view('admin_umkm.order', [
+            'orders' => Order::latest()->get()
+        ]);
+    }
     
+    public function invoice($id){
+        $order = Order::find($id);
+        return view('invoice', compact('order'));
+    }
+    
+
+    public function History()
+    {
+        $orders = Order::with('product')->where('status', 'paid')->get(); // Load relasi product
+        return view('history', compact('orders'));
+    }
 }

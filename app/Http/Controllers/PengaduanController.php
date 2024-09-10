@@ -48,7 +48,7 @@ class PengaduanController extends Controller
             'rincian_pengaduan' => $request->rincian_pengaduan,
         ]);
 
-        return redirect()->route('H_pengaduan')->with('success', 'Pengaduan berhasil dikirim.');
+        return redirect()->route('pengaduanadmin')->with('success', 'Pengaduan berhasil dikirim.');
     }
 
     public function delete_pengaduan(Request $request, $id) {

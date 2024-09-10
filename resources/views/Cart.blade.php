@@ -14,30 +14,33 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnH1z6B8+Zt1Z7gL8b9LaE6A5+aF6rrgh/s3Rqs8pPv1gxd5F2Zwx+wRT7OoXtY/8PeAqTxw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/UMKM-D.css">
+  {{-- <link rel="stylesheet" href="css/UMKM-D.css"> --}}
 
   <!-- @TODO: replace SET_YOUR_CLIENT_KEY_HERE with your client key -->
   <script type="text/javascript"
-		src="https://app.stg.midtrans.com/snap/snap.js"
+		src="https://app.sandbox.midtrans.com/snap/snap.js"
     data-client-key={{env('MIDTRANS_CLIENT_KEY')}}></script>
 
   <title>Desa Plosokerep</title>
+  <style>
+    .body-content {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* Menggunakan 100vh untuk tinggi minimum halaman */
+    }
+
+    .main-content {
+      flex: 1; /* Biarkan konten utama memenuhi sisa ruang */
+    }
+  </style>
 </head>
 <body>
-  @include('layout.navbar')
-
-  <div class="container mt-2">
-    <div class="info-container shadow p-1 mb-5 rounded">
-      <span class="fw-bold text-dark"><i class="bi bi-megaphone-fill info-icon"></i> Sekilas Info</span>
-      <div class="info-text">
-        <marquee behavior="" direction="">
-          <b>Selamat datang di Website Resmi UMKM Desa Plosokerep</b>
-        </marquee>
-      </div>
-    </div>
-  </div>
-  
-  <div class="container">
+  @include('layout.navbaradmin')
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="container body-content">
     <h2 class="mb-4">Keranjang Belanja</h2>
     @if (session('error'))
       <div class="alert alert-danger">{{ session('error') }}</div>
@@ -49,6 +52,9 @@
     @if($orders->count() > 0)
       <div class="row row-cols-1 row-cols-md-4 g-4">
         @foreach($orders as $order)
+        @if ($order->status == 'paid')
+          @continue
+        @endif
         <div class="col mb-4">
             <div class="card shadow">
                 <img src="{{ asset($order->product->img_produk ? 'storage/gambar/Product/' . $order->product->img_produk : 'path/to/default/image.jpg') }}" class="card-img-top" alt="{{ $order->product->nama_produk ?? 'Nama Produk Tidak Tersedia' }}">
@@ -72,16 +78,17 @@
                 </div>
             </div>
         </div>
-    @endforeach
-    
-    
+        @endforeach
       </div>
     @else
       <p class="mt-3">Keranjang Anda kosong.</p>
     @endif
   
-    <a href="{{ route('umkm_d') }}" class="btn btn-primary mt-4">Lanjut Belanja</a>
+    <a href="{{ route('umkm_da') }}" class="btn btn-primary mt-4">Lanjut Belanja</a>
   </div>
+
+  @include('layout/copyright')
+
   <!-- Dalam bagian script -->
   <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function(event) {
@@ -91,7 +98,8 @@
                 payButton.addEventListener('click', function () {
                     snap.pay('{{ $order->snap_token }}', {
                         onSuccess: function (result) {
-                            alert("Payment success!");
+                            //alert("Payment success!");
+                            window.location.href = '/invoice/{{$order->id}}'
                             console.log(result);
                         },
                         onPending: function (result) {

@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Tambah Aparatur Desa </h1>
+              <h1 class="m-0">Tambah Data Pekerjaan Desa </h1>
             </div><!-- /.col -->
         </div>
         <!-- /.row -->
@@ -25,7 +25,7 @@
               <!-- general form elements -->
               <div class="card card-primary">
                 <div class="card-header">
-                  <h3 class="card-title">Form Aparatur Desa</h3>
+                  <h3 class="card-title">Form Data Pekerjaa Desa</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->

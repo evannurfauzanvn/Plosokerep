@@ -22,10 +22,10 @@
                     <a class="nav-link text-light" href={{ route('homepageadmin') }}><i class="bi bi-house-door-fill"></i> Beranda</a>
                 </li>
                 <li class="nav-item" style="margin-right: 20px;">
-                    <a class="nav-link text-light" href={{ route('pengaduanadmin') }}><i class="bi bi-geo-alt-fill"></i> Pengaduan</a>
+                    <a class="nav-link text-light" href={{ route('pengaduanadmin') }}><i class="bi-megaphone-fill"></i> Pengaduan</a>
                 </li>
                 <li class="nav-item" style="margin-right: 20px;">
-                    <a class="nav-link text-light" href={{ route('surata') }}><i class="bi bi-person-workspace"></i> Pengajuan</a>
+                    <a class="nav-link text-light" href={{ route('surata') }}><i class="bi-file-text-fill"></i> Pengajuan</a>
                 </li>
                 <li class="nav-item" style="margin-right: 20px;" >
                     <a class="nav-link text-light" href={{ route('umkm_da') }}><i class="bi bi-basket3-fill"></i> UMKM</a>

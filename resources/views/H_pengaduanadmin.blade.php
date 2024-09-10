@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    @include('layout/navbaradmin')
+    @include('layout.navbaradmin')
 
     <br>
     <br>

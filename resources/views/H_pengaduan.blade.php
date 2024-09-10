@@ -17,10 +17,20 @@
 
 <body>
     @include('layout/navbar')
-
     <br>
     <br>
     <br>
+      <div class="container mt-2">
+          <div class="info-container shadow p-1 mb-5 rounded">
+              <i class="bi bi-megaphone-fill info-icon"></i>
+              <span class="fw-bold text-dark">Sekilas Info</span>
+              <div class="info-text">
+                  <marquee behavior="" direction="">
+                      <b>Selamat datang di Website Resmi UMKM Desa Plosokerep</b>
+                  </marquee>
+              </div>
+          </div>
+      </div>
     <div class="container mt-4">
         <div class="card">
             <div class="card-body">

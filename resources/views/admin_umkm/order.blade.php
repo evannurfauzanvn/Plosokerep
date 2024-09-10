@@ -28,32 +28,32 @@
                     <thead>
                       <tr>
                         <th>No</th>
-                        <th>Nama Produk</th>
-                        <th>Harga</th>
-                        <th>Jumlah</th>
-                        <th>Total Harga</th>
+                        <th>Tanggal Pesan</th>
                         <th>Pemesan</th>
                         <th>Alamat</th>
+                        <th>Nama Produk</th>
+                        <th>Jumlah</th>
+                        <th>Gambar</th>
+                        <th>Total</th>
                         <th>Status</th>
-                        <th>Tanggal Pesan</th>
                       </tr>
                     </thead>
                     <tbody>
                       @foreach ($orders as $order)
                         <tr>
                           <td>{{ $loop->iteration }}</td>
-                          <td>{{ $order->product->nama_produk }}</td> 
-                          <td>Rp. {{ number_format($order->product->harga, 0, ',', '.') }}</td>
-                          <td>{{ $order->quantity }}</td>
-                          <td>Rp. {{ number_format($order->product->harga * $order->quantity, 0, ',', '.') }}</td>
-                          <td>{{ $order->customer_name }}</td>
-                          <td>{{ $order->customer_address }}</td>
+                          <td> {{ $order->created_at->format('d-m-y') }}</td>
+                          <td> {{ $order->name }}</td>
+                          <td>{{ $order->address }}</td>
+                          <td>{{ $order->product->nama_produk ?? 'Nama Produk Tidak Tersedia' }}</td> 
+                          <td>{{ $order->qty }}</td>
+                          <td><img src="{{ asset($order->product->img_produk ? 'storage/gambar/Product/' . $order->product->img_produk : 'path/to/default/image.jpg') }}" width="100"></td>
+                          <td> Rp. {{ number_format($order->total_price, 0, ',', '.') }}</td> 
                           <td>{{ $order->status }}</td>
-                          <td>{{ $order->created_at->format('d-m-Y') }}</td>
                         </tr>
+                        <!-- /.modal -->
                       @endforeach
                     </tbody>
-                    
                   </table>
                 </div>
                 <!-- /.card-body -->

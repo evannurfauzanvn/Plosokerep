@@ -19,6 +19,7 @@
 
     <div class="container mt-4 shadow p-3 mb-5 bg-info rounded ">
         <div class="row">
+            <h1 class="text-center fw-normal">Aparatur Desa Plosokerep</h1>
             <div class="col-md-3">
                 <div class="card ketua-card shadow p-3 mb-5 bg-info rounded">
                     <img src="{{ URL('Struktur/kuwu.jpeg') }}" class="card-img-top img-fluid rounded-2" alt="Foto">

@@ -161,12 +161,12 @@
             </div>
           </div>
         </div>
+      </div>
     </div>
   </div>
-  <br>
-  <br>
+  
   <!-- Optional JavaScript; choose one of the two! -->
-
+  @include('layout/copyright')
   <!-- Option 1: Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXlUr3aB+Kx4dZPeM6K/A6zt7v/tbB6rZ9E+EQ6MofeFB1NXFUOfN8FHwp+" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhG81sKDtZKWpCwrP7f8KpP4YfIvATeFw5PauH526ymkitDv8f0XwRGE8K/9" crossorigin="anonymous"></script>
@@ -175,4 +175,4 @@
       <!-- Font Awesome JS -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha512-k6RqeWeci5ZR/Lv4MR0sA0FfDOMp0RSK9sB0UGaAcVEOl8SKSTBSkT8wCHd1/6hsLoRF4XsF06HUETeKRWPL5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </body>
-    </html>
+  </html>

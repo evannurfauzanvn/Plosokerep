@@ -19,12 +19,8 @@ class AdminUmkmController extends Controller
     }
 
 
-
-    public function orders()
-    {
-        // Mengambil semua pesanan dengan status paid
-        $orders = Cart::where('status', 'paid')->get();
-        return view('admin.orders', compact('orders'));
+    public function pesan(){
+        return view('umkm.pesan');
     }
 
 }

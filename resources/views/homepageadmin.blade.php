@@ -18,22 +18,21 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/stylesA.css">
 
-
-
     <title>Desa Plosokerep</title>
 </head>
 
 <body>
     @include('layout.navbaradmin')
 
-    <br>
-    <br>
-    <div class="container mt-4 ">
+    <br><br><br>
+    @include('layout.info')
+
+    <div class="container mt-4">
         <div class="row">
+            <!-- Sidebar -->
             <div class="col-12 col-md-4 sidebar bg-primary" id="kiri">
                 <img src="{{ URL('gambar/logo.png') }}" alt="logo"
-                    style="width: 128px; height: 159px; display: block; margin: 0 auto; margin-top:2rem;"
-                    id="logo1">
+                    style="width: 128px; height: 159px; display: block; margin: 0 auto; margin-top:2rem;" id="logo1">
                 <h1 class="text-center text-light fw-bolder">Desa Plosokerep</h1>
                 <p class="text-center text-light fw-bolder">Kec. Terisi, Kabupaten Indramayu, Jawa Barat</p>
                 <div class="row">
@@ -89,7 +88,6 @@
                         </a>
                     </div>
 
-
                     <div class="col-4 d-flex justify-content-center mb-2">
                         <a href="/sejarah" class="btn btn-success" style="height: 100px; width: 100%;">
                             <i class="bi bi-houses-fill"></i>
@@ -100,7 +98,7 @@
                     <div class="col-4 d-flex justify-content-center mb-2">
                         <a href="/berita" class="btn btn-success" style="height: 100px; width: 100%;">
                             <i class="bi bi-newspaper"></i>
-                            <p style="font-size: 14px; text-align: center;">berita</p>
+                            <p style="font-size: 14px; text-align: center;">Berita</p>
                         </a>
                     </div>
 
@@ -108,7 +106,7 @@
                         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#peta"
                             style="height: 100px; width: 100%;">
                             <i class="bi bi-person-lines-fill"></i>
-                            <p style="font-size: 10px; text-align: center;">peta desa</p>
+                            <p style="font-size: 10px; text-align: center;">Peta Desa</p>
                         </button>
 
                         <!-- Modal -->
@@ -124,9 +122,9 @@
                                     <div class="modal-body text-center">
                                         <div class="embed-responsive embed-responsive-16by9">
                                             <iframe class="embed-responsive-item"
-                                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31714.880030170756!2d108.12779004999999!3d-6.47600405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6ecbc254f159e7%3A0x5a1bd9656311b724!2sPlosokerep%2C%20Kec.%20Terisi%2C%20Kabupaten%20Indramayu%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1719541754809!5m2!1sid!2sid"
-                                                style="border:0; width: 100%; height: 500px;" allowfullscreen=""
-                                                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31714.880030170756!2d108.12779004999999!3d-6.47600405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6ecbc254f159e7%3A0x5a1bd9656311b724!2sPlosokerep%2C%20Kec.%20Terisi%2C%20Kabupaten%20Indramayu%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1623226809118!5m2!1sid!2sid"
+                                                width="100%" height="450" style="border:0;" allowfullscreen=""
+                                                loading="lazy"></iframe>
                                         </div>
                                     </div>
                                 </div>
@@ -134,34 +132,39 @@
                         </div>
                     </div>
 
-
-
-
                     <div class="col-4 d-flex justify-content-center mb-2">
                         <a href="/umkm_d" class="btn btn-success" style="height: 100px; width: 100%;">
                             <i class="bi bi-basket2-fill"></i>
                             <p style="font-size: 14px; text-align: center;">UMKM Desa</p>
                         </a>
                     </div>
-
                 </div>
             </div>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
 
+            <!-- Produk UMKM -->
             <div class="col-12 col-md-8 mt-2">
-
-                <br>
-                
+                <h3 class="text-center fw-bolder">Produk UMKM Desa Plosokerep</h3>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    @foreach ($product as $item)
+                    <div class="col mb-3">
+                        <div class="card custom-card">
+                            <img src="{{asset('storage/gambar/Product/'.$item->img_produk)}}" class="card-img-top" alt="">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $item->nama_produk }}</h5>
+                            </div>
+                            <div class="d-flex justify-content-around mb-3">
+                                <h5>Rp. {{$item->harga}}</h5>
+                                <a href="{{ route('umkm_ea', ['id' => $item->id]) }}" class="btn btn-primary">Lihat Produk</a>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
         </div>
     </div>
 
     @include('layout/copyright')
-
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">

@@ -1,10 +1,4 @@
 body {
-    margin-top: 0px;
-    font-family: Arial, sans-serif;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    backdrop-filter: blur(3px);
     margin: 0;
     padding: 0;
 }
@@ -84,5 +78,23 @@ body {
     }
 }
 
+.custom-card img {
+    height: 200px; /* Sesuaikan tinggi gambar sesuai kebutuhan Anda */
+    object-fit: cover; /* Memastikan gambar tetap proporsional */
+}
+
+.custom-card .card-body {
+    min-height: 100px; /* Tetapkan tinggi minimum untuk teks kartu */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertikal align tengah */
+    align-items: center; /* Horizonal align tengah */
+    text-align: center;
+}
+
+.custom-card .d-flex {
+    justify-content: space-between;
+    width: 100%;
+}
 
 

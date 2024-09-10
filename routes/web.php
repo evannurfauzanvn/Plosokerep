@@ -16,6 +16,7 @@ use App\Http\Controllers\PengajuanSuratController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfilDesaController;
 use App\Http\Controllers\UserController;
+use App\Models\Order;
 use App\Models\Pengaduan;
 use App\Models\PengajuanSurat;
 use Illuminate\Support\Facades\Route;
@@ -114,6 +115,12 @@ Route::get('/berita', [BeritaController::class, 'berita'])->name('berita');
 Route::get('/beritaklik', [BeritaController::class, 'beritaklik'])->name('beritaklik');
 Route::get('/beritaklik/{id}', [BeritaController::class, 'beritaklik'])->name('beritaklik');
 
+Route::get('/umkm_d', [ProductController::class, 'umkm_d'])->name('umkm_d');
+Route::get('/umkm_e', [ProductController::class, 'umkm_e'])->name('umkm_e');
+//Route::get('/umkm_e/{id}', [ProductController::class, 'umkm_e'])->name('umkm_e');
+Route::get('/umkm_c/{id}', [ProductController::class, 'umkm_c'])->name('umkm_c');
+    // Route::get('/umkm_ka/{id}', [ProductController::class, 'umkm_ka'])->name('umkm_ka');
+
 
 
 
@@ -173,6 +180,10 @@ Route::group(['prefix' => 'umkm', 'middleware' => ['auth', 'role:umkm'], 'as' =>
     Route::get('/show/{id}', [ProductController::class, 'show'])->name('berita.show');
     Route::put('/update_produk/{id}', [ProductController::class, 'update_produk'])->name('produk.update');
     Route::delete('/delete_produk/{id}', [ProductController::class, 'delete_produk'])->name('produk.delete');
+
+    Route::get('/pesan', [AdminUmkmController::class, 'pesan'])->name('pesan');
+    Route::get('/pesan', [OrderController::class, 'pesan'])->name('pesan');
+
 });
 
 // Group untuk file manager dengan middleware auth
@@ -207,6 +218,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/checkout', [OrderController::class, 'checkoutForm'])->name('checkout.form');
 
     Route::delete('/order/{id}', [OrderController::class, 'delete'])->name('order.delete'); // Route baru untuk menghapus order
+
+    Route::get('/invoice/{id}', [OrderController::class, 'invoice'])->name('invoice');
+
+    Route::get('/history', [OrderController::class, 'history'])->name('history');
+
+
+    
 });
 
 Route::post('/pengajuan-surat', [PengajuanSuratController::class, 'store'])->name('pengajuan.surat.store');

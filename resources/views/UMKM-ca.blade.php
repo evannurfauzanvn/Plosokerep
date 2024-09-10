@@ -47,21 +47,21 @@
                         @csrf
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama</label>
-                            <input type="text" class="form-control" id="nama" name="customer_name" required>
+                            <input type="text" class="form-control" id="nama" name="name" required>
                         </div>
                         <div class="mb-3">
                             <label for="noTelepon" class="form-label">No Telepon</label>
-                            <input type="tel" class="form-control" id="noTelepon" name="noTelepon" required>
+                            <input type="tel" class="form-control" id="noTelepon" name="phone" required>
                         </div>
                         <div class="mb-3">
                             <label for="alamat" class="form-label">Alamat</label>
-                            <textarea class="form-control" id="alamat" name="customer_address" rows="3" required></textarea>
+                            <textarea class="form-control" id="alamat" name="address" rows="3" required></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="jumlahBarang" class="form-label">Jumlah Barang</label>
                             <div class="input-group jumlah-barang-group">
                                 <button type="button" class="btn btn-outline-secondary" id="kurang">-</button>
-                                <input type="number" class="form-control text-center jumlah-barang-input" id="jumlahBarang" name="quantity" value="1" min="1" readonly>
+                                <input type="number" class="form-control text-center jumlah-barang-input" id="jumlahBarang" name="qty" value="1" min="1" readonly>
                                 <button type="button" class="btn btn-outline-secondary" id="tambah">+</button>
                             </div>
                         </div>
@@ -76,7 +76,7 @@
         </div>
     </div>
 </div>
-  
+@include('layout/copyright')  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <!-- Font Awesome JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha512-k6RqeWeci5ZR/Lv4MR0sA0FfDOMp0RSK9sB0UGaAcVEOl8SKSTBSkT8wCHd1/6hsLoRF4XsF06HUET6hK6y/pw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

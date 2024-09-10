@@ -7,14 +7,32 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <title>Desa Plosokerep</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .content {
+      flex: 1;
+    }
+    .footer-custom {
+      background-color: blue;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
-  @include('layout.navbar')
+  @include('layout.navbaradmin')
 
-  <div class="container mt-5">
+  <div class="container mt-5 content">
     <div class="row justify-content-center">
       <div class="col-md-8">
-        <div class="card">
+        <div class="card mt-5">
           <div class="card-header d-flex justify-content-between align-items-center">
             <span>{{ __('Profil Saya') }}</span>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editProfileModal">
@@ -53,6 +71,14 @@
               <div class="col-md-6 offset-md-4">
                 <a href="{{ route('cart.view') }}" class="btn btn-outline-primary">
                   <i class="fas fa-shopping-cart"></i> Keranjang
+                </a>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-6 offset-md-4">
+                {{-- <a href="{{ route('invoice', ['id' => $order->id]) }}" class="btn btn-outline-primary"> --}}
+                <a href="{{ route('history') }}" class="btn btn-outline-primary">
+                  <i class="fas fa-credit-card"></i> History Transaksi
                 </a>
               </div>
             </div>
@@ -103,6 +129,8 @@
       </div>
     </div>
   </div>
+
+  @include('layout/copyright')
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>

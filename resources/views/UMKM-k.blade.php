@@ -22,7 +22,7 @@
     <div id="cart-items"></div>
     <button id="checkout" class="btn btn-success mt-3">Check Out</button>
   </div>
-
+  @include('layout/copyright')
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const cartItemsContainer = document.getElementById('cart-items');

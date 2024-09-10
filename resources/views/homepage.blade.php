@@ -33,7 +33,7 @@
     <div class="info-container shadow p-1 mb-5 rounded">
       <div class="info-text">
         <marquee behavior="" direction="">
-          <b>Selamat datang di Website Resmi UMKM Desa Plosokerep</b>
+          <b>Selamat Datang di Website Informasi Desa Plosokerep</b>
         </marquee>
       </div>
     </div>
